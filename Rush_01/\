@@ -1,0 +1,155 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rush.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lomasson <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/22 13:51:23 by lomasson          #+#    #+#             */
+/*   Updated: 2022/01/23 00:06:24 by lomasson         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+#include <stdio.h>
+/*
+char	tab_1();
+{
+	char	*pos[5];
+
+	*pos[0] = "1234";
+	*pos[1] = "1243";
+	*pos[2] = "1342";
+	*pos[3] = "1324";
+	*pos[4] = "1432";
+	*pos[5] = "1423";
+	return(**pos);
+}
+
+char	tab_2();
+{
+	char	*pos[5];
+
+	*pos[0] = "2134";
+	*pos[1] = "2143";
+	*pos[2] = "2341";
+	*pos[3] = "2314";
+	*pos[4] = "2431";
+	*pos[5] = "2413";
+	return(**pos);
+}
+
+char	**tab_3();
+{
+	char	*p
+		os[5];
+
+	pos[0] = "3124";
+	pos[1] = "3142";
+	pos[2] = "3214";
+	pos[3] = "3241";
+	pos[4] = "3412";
+	pos[5] = "3421";
+	return(pos);
+}
+
+char	 **tab_4();
+{
+	char	*pos[5];
+
+	*pos[0] = "4123";
+	*pos[1] = "4132";
+	*pos[2] = "4213";
+	*pos[3] = "4231";
+	*pos[4] = "4312";
+	*pos[5] = "4321";
+	return(pos)
+}
+*/
+int left(char *tab, int size)
+{
+	int	i;
+	int	j;
+	int left;
+
+	left = 1;
+	i = 1;
+	while(i < size -1)
+	{
+		j = i - 1;
+		while(j != -1)
+		{
+			if(tab[j] < tab[i])
+				j--;
+			else
+				break;
+		}
+		if (j == -1)
+			left++;
+		i++;
+	}
+	return(left);
+}
+
+int right(char *tab, int size)
+{
+	int	i;
+	int	j;
+	int right;
+
+	right = 1;
+	i = size - 2;
+	while(i >= 0)
+	{
+		j = i + 1;
+		while(j < size - 1)
+		{
+			if(tab[i] < tab[j])
+				j--;
+			else
+				break;
+		}
+		if (j == 1)
+			right++;
+		i--;
+	}
+	return(right);
+}
+
+/*int main(char *tab, int x)
+{
+	int	a;
+	int	b;
+	int i;
+	int r;
+	int l;
+	char *tab;
+
+	a = 0;
+	b = 0;
+	while(a != 5)
+	{
+		while(b != 5)
+		{
+			r = right(pos[a], x);
+			l = left(pos[a], x);
+			if (r == x && l == y);
+			{
+				tab[x] = pos[a][b];
+				
+			}
+			b ++;
+		}
+		a++;
+	}
+	return(tab);
+}*/
+
+int main()
+{
+	char tab[] = "4321";
+	int x = 5;
+
+	printf("%d\n", left(tab, x));
+	printf("%d\n", right(tab, x));
+}
